@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Flower2, ShieldCheck } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -8,7 +9,7 @@ export default function Footer() {
           <div className="lg:col-span-3 flex flex-col gap-space-md">
             <div className="flex items-center mb-3">
               <Link className="flex items-center gap-2 text-primary font-bold hover:opacity-90 transition-opacity" to="/">
-                <span className="material-symbols-outlined text-[30px] text-primary">spa</span>
+                <Flower2 size={30} className="text-primary" />
                 <span className="text-xl md:text-3xl font-extrabold text-on-surface tracking-tight">
                   kynd
                 </span>
@@ -18,7 +19,7 @@ export default function Footer() {
               Hyperlocal infrastructure for mutual aid. Reciprocal, dignified support rooted on your block.
             </p>
             <div className="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm pt-space-xs">
-              <span className="material-symbols-outlined text-primary text-[18px]">verified_user</span>
+              <ShieldCheck size={18} className="text-primary" />
               <span>Civic Trust Verified Network</span>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ShieldCheck, Handshake, LocateFixed, Siren, Scale, ChevronDown } from 'lucide-react';
 
 interface FaqItem {
   question: string;
@@ -54,7 +55,7 @@ export default function TrustAndFaq() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
             <div className="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm">
               <div className="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center text-primary">
-                <span className="material-symbols-outlined text-[24px]">verified_user</span>
+                <ShieldCheck size={24} />
               </div>
               <h4 className="font-title-md text-title-md text-on-surface">Mandatory Verification</h4>
               <p className="font-body-sm text-body-sm text-on-surface-variant">Every neighbor is confirmed via SMS and local identity verification.</p>
@@ -62,7 +63,7 @@ export default function TrustAndFaq() {
 
             <div className="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm">
               <div className="w-12 h-12 rounded-xl bg-secondary-fixed flex items-center justify-center text-secondary">
-                <span className="material-symbols-outlined text-[24px]">handshake</span>
+                <Handshake size={24} />
               </div>
               <h4 className="font-title-md text-title-md text-on-surface">Mutual Acceptance</h4>
               <p className="font-body-sm text-body-sm text-on-surface-variant">Connections happen only when both people explicitly agree to connect.</p>
@@ -70,7 +71,7 @@ export default function TrustAndFaq() {
 
             <div className="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm">
               <div className="w-12 h-12 rounded-xl bg-secondary-container flex items-center justify-center text-on-secondary-container">
-                <span className="material-symbols-outlined text-[24px]">share_location</span>
+                <LocateFixed size={24} />
               </div>
               <h4 className="font-title-md text-title-md text-on-surface">Safety Check-Ins</h4>
               <p className="font-body-sm text-body-sm text-on-surface-variant">Automated alerts keep trusted contacts informed during in-person sessions.</p>
@@ -78,7 +79,7 @@ export default function TrustAndFaq() {
 
             <div className="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm">
               <div className="w-12 h-12 rounded-xl bg-error-container flex items-center justify-center text-on-error-container">
-                <span className="material-symbols-outlined text-[24px]">emergency</span>
+                <Siren size={24} />
               </div>
               <h4 className="font-title-md text-title-md text-on-surface">Civic Moderation</h4>
               <p className="font-body-sm text-body-sm text-on-surface-variant">Active neighborhood moderators provide rapid assistance 24/7.</p>
@@ -87,7 +88,7 @@ export default function TrustAndFaq() {
 
           <div className="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col sm:flex-row items-center justify-between gap-space-md">
             <div className="flex items-center gap-space-sm">
-              <span className="material-symbols-outlined text-primary text-[28px]">gavel</span>
+              <Scale size={28} className="text-primary" />
               <span className="font-body-sm text-body-sm text-on-surface">
                 Read our <strong>Mutual Trust Standard</strong> to learn how personal addresses are never exposed until both parties agree.
               </span>
@@ -134,9 +135,7 @@ export default function TrustAndFaq() {
                     type="button"
                   >
                     <span className="font-title-md text-title-md text-on-surface">{faq.question}</span>
-                    <span className={`material-symbols-outlined text-primary text-[24px] transition-transform ${openFaqIndex === index ? 'rotate-180' : ''}`}>
-                      expand_more
-                    </span>
+                    <ChevronDown size={24} className={`text-primary transition-transform ${openFaqIndex === index ? 'rotate-180' : ''}`} />
                   </button>
                   {openFaqIndex === index && (
                     <div className="px-space-lg pb-space-lg text-on-surface-variant font-body-sm text-body-sm">

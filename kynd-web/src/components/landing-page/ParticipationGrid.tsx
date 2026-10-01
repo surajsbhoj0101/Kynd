@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { handleImgError } from '../../utils/imageFallback';
+import { ArrowRight, LayoutGrid } from 'lucide-react';
 
 export default function ParticipationGrid() {
   return (
@@ -38,7 +39,7 @@ export default function ParticipationGrid() {
                 </div>
                 <Link to="/need-help" className="font-label-md text-label-md text-primary font-semibold hover:text-primary-container inline-flex items-center gap-1 pt-space-xs">
                   <span>Request Assistance</span>
-                  <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                  <ArrowRight size={16} />
                 </Link>
               </div>
             </div>
@@ -61,7 +62,7 @@ export default function ParticipationGrid() {
                 </div>
                 <Link to="/offer-help" className="font-label-md text-label-md text-primary font-semibold hover:text-primary-container inline-flex items-center gap-1 pt-space-xs">
                   <span>Set Your Availability</span>
-                  <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                  <ArrowRight size={16} />
                 </Link>
               </div>
             </div>
@@ -84,7 +85,7 @@ export default function ParticipationGrid() {
                 </div>
                 <Link to="/community" className="font-label-md text-label-md text-primary font-semibold hover:text-primary-container inline-flex items-center gap-1 pt-space-xs">
                   <span>Browse Open Teams</span>
-                  <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                  <ArrowRight size={16} />
                 </Link>
               </div>
             </div>
@@ -104,7 +105,7 @@ export default function ParticipationGrid() {
             </div>
             <Link to="/need-help" className="px-space-lg py-space-sm rounded-xl bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-all shadow-sm w-fit inline-flex items-center gap-space-xs">
               <span>See All Active Causes</span>
-              <span className="material-symbols-outlined text-[16px]">grid_view</span>
+              <LayoutGrid size={16} />
             </Link>
           </div>
 

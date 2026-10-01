@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { handleImgError } from '../../utils/imageFallback';
+import { UsersRound, MapPin } from 'lucide-react';
 
 export default function CommunityShowcase() {
   return (
@@ -19,7 +20,7 @@ export default function CommunityShowcase() {
             </div>
             <Link to="/community" className="px-space-lg py-space-sm rounded-xl bg-surface-container-low text-primary font-label-md text-label-md hover:bg-surface-container transition-colors w-fit inline-flex items-center gap-space-xs">
               <span>View All 18 Open Teams</span>
-              <span className="material-symbols-outlined text-[16px]">groups</span>
+              <UsersRound size={16} />
             </Link>
           </div>
 
@@ -35,7 +36,7 @@ export default function CommunityShowcase() {
                   onError={(e) => handleImgError(e, "https://lh3.googleusercontent.com/aida-public/AB6AXuDewtf6W-HIcCgqi-o2FyyfbCtBmfHBq5jhsjWZEZD6D4U_4M78MDWtX_fIzveo1F0eBgtqaIhsmaAeVXxQR9yWgB4OzUMY5TSLDIFEMqaqXLqeXMhL-rsPXNisB4PJGCxXJ8kwUz8fGzspZrMGBZ945SqG2Iz8VxQZBlOAmoJDZd8V8MA2IGxlEZiKIy1LoQY_zq4VtRmeqXmk4AIZiU9Pcjp_EjtlEpXRD3nqecAeCzpEDJn5AXESdQ")}
                 />
                 <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm text-primary font-label-sm text-label-sm font-bold flex items-center gap-1">
-                  <span className="material-symbols-outlined text-[14px]">pin_drop</span>
+                  <MapPin size={14} />
                   <span>1.2 km away • Indiranagar</span>
                 </div>
               </div>
@@ -70,7 +71,7 @@ export default function CommunityShowcase() {
                   onError={(e) => handleImgError(e, "https://lh3.googleusercontent.com/aida-public/AB6AXuCdWbTvjv5H1fBioTv8qVQW0vGAzgkIgOJFNqCUsLlUGYGp-PDTqG-sb-VotkzR2HHkJTH-GNZoXZ7lIt-pIMaFMU9DIQW4wUBLtSNx38s5Wgxt-bKRT0mpNu7Hca8rhd3I8y5CuttxerVQblSAQDMaOtEYaNRqayPPxaUMZ57o0CZFNHVdFLxGbihF6kstLr4TRoTnXUC_dTQqLQkW8a3OTnzTeZU7oLiKCTfvQN7vrIaXfy-wZQxHhQ")}
                 />
                 <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm text-primary font-label-sm text-label-sm font-bold flex items-center gap-1">
-                  <span className="material-symbols-outlined text-[14px]">pin_drop</span>
+                  <MapPin size={14} />
                   <span>2.4 km away • Domlur</span>
                 </div>
               </div>
@@ -105,7 +106,7 @@ export default function CommunityShowcase() {
                   onError={(e) => handleImgError(e, "https://lh3.googleusercontent.com/aida/AEtjO1WMplTAjzhJtaVv2cx0Nbm2nCZmHFnslV8NQXFvSv-tLs8MnI04D0ESJ1aXwVZKjbIUvTsZLDanPPW5IZkaAAGkkIsvIkKi-fds3vvL4mqmCo37DpWmYo6Jt6V1ld9mZP8TI3ri6XICrdy5GdVmeoX52w2te-Tj1Ab0xRsL0MA_shpmd0UeQ37nMKy1gKsq-thn2phsTHdNuh33rgJJS_ljyapHXYxyfBrnZfnUdHNadUKHttH-NFVjUbDb")}
                 />
                 <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm text-primary font-label-sm text-label-sm font-bold flex items-center gap-1">
-                  <span className="material-symbols-outlined text-[14px]">pin_drop</span>
+                  <MapPin size={14} />
                   <span>4.0 km away</span>
                 </div>
               </div>
@@ -188,7 +189,7 @@ export default function CommunityShowcase() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
             <div className="p-space-lg rounded-3xl bg-surface-container-lowest shadow-sm flex flex-col justify-between gap-space-md">
               <p className="font-body-sm text-body-sm text-on-surface-variant italic">
-                “Last month I broke my wrist and neighbors helped with school drop-offs. This month I helped two high schoolers prep for chemistry. That’s Kynd.”
+                "Last month I broke my wrist and neighbors helped with school drop-offs. This month I helped two high schoolers prep for chemistry. That's Kynd."
               </p>
               <div className="flex items-center gap-space-sm pt-space-xs">
                 <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center font-bold text-primary">ER</div>
@@ -201,7 +202,7 @@ export default function CommunityShowcase() {
 
             <div className="p-space-lg rounded-3xl bg-surface-container-lowest shadow-sm flex flex-col justify-between gap-space-md">
               <p className="font-body-sm text-body-sm text-on-surface-variant italic">
-                “I love that there are no 1-to-5 star reviews. Just honest records of who showed up and how we helped each other. Pure dignity.”
+                "I love that there are no 1-to-5 star reviews. Just honest records of who showed up and how we helped each other. Pure dignity."
               </p>
               <div className="flex items-center gap-space-sm pt-space-xs">
                 <div className="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center font-bold text-secondary">MV</div>
@@ -214,7 +215,7 @@ export default function CommunityShowcase() {
 
             <div className="p-space-lg rounded-3xl bg-surface-container-lowest shadow-sm flex flex-col justify-between gap-space-md">
               <p className="font-body-sm text-body-sm text-on-surface-variant italic">
-                “Coordinating food distribution used to take dozens of messy group chats. With Kynd teams, 15 volunteers assembled in under 2 hours.”
+                "Coordinating food distribution used to take dozens of messy group chats. With Kynd teams, 15 volunteers assembled in under 2 hours."
               </p>
               <div className="flex items-center gap-space-sm pt-space-xs">
                 <div className="w-10 h-10 rounded-full bg-primary-fixed-dim flex items-center justify-center font-bold text-primary">PP</div>
@@ -227,7 +228,7 @@ export default function CommunityShowcase() {
 
             <div className="p-space-lg rounded-3xl bg-surface-container-lowest shadow-sm flex flex-col justify-between gap-space-md">
               <p className="font-body-sm text-body-sm text-on-surface-variant italic">
-                “Setting a 2 km radius means I only help people I might run into at the local bakery. It makes our neighborhood feel alive again.”
+                "Setting a 2 km radius means I only help people I might run into at the local bakery. It makes our neighborhood feel alive again."
               </p>
               <div className="flex items-center gap-space-sm pt-space-xs">
                 <div className="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center font-bold text-on-secondary-container">DC</div>

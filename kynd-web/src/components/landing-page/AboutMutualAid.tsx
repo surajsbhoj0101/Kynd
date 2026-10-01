@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { handleImgError } from '../../utils/imageFallback';
+import { ArrowRight, RefreshCcw, Navigation, ShieldCheck, PenLine, Compass, CheckCheck, ShieldCheck as ShieldCheckAlt } from 'lucide-react';
 
 export default function AboutMutualAid() {
   return (
@@ -37,7 +38,7 @@ export default function AboutMutualAid() {
               {/* 3 Spaced Pillars */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-space-sm pt-space-xs">
                 <div className="flex items-start gap-space-xs p-space-sm rounded-2xl bg-surface-container-low border border-surface-container/60">
-                  <span className="material-symbols-outlined text-primary text-[22px] shrink-0 mt-0.5">sync_alt</span>
+                  <RefreshCcw size={22} className="text-primary shrink-0 mt-0.5" />
                   <div className="flex flex-col gap-0.5">
                     <span className="font-title-sm text-title-sm font-bold text-on-surface">Two-Way Support</span>
                     <span className="font-body-sm text-body-sm text-on-surface-variant">Shared &amp; equal</span>
@@ -45,7 +46,7 @@ export default function AboutMutualAid() {
                 </div>
 
                 <div className="flex items-start gap-space-xs p-space-sm rounded-2xl bg-surface-container-low border border-surface-container/60">
-                  <span className="material-symbols-outlined text-primary text-[22px] shrink-0 mt-0.5">near_me</span>
+                  <Navigation size={22} className="text-primary shrink-0 mt-0.5" />
                   <div className="flex flex-col gap-0.5">
                     <span className="font-title-sm text-title-sm font-bold text-on-surface">Hyperlocal Proximity</span>
                     <span className="font-body-sm text-body-sm text-on-surface-variant">Walking radius</span>
@@ -53,7 +54,7 @@ export default function AboutMutualAid() {
                 </div>
 
                 <div className="flex items-start gap-space-xs p-space-sm rounded-2xl bg-surface-container-low border border-surface-container/60">
-                  <span className="material-symbols-outlined text-primary text-[22px] shrink-0 mt-0.5">shield_with_heart</span>
+                  <ShieldCheck size={22} className="text-primary shrink-0 mt-0.5" />
                   <div className="flex flex-col gap-0.5">
                     <span className="font-title-sm text-title-sm font-bold text-on-surface">Zero Ratings</span>
                     <span className="font-body-sm text-body-sm text-on-surface-variant">Dignity first</span>
@@ -64,7 +65,7 @@ export default function AboutMutualAid() {
               <div className="pt-space-xs">
                 <Link to="/philosophy" className="inline-flex items-center gap-space-xs px-space-lg py-space-sm rounded-xl bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-all shadow-sm">
                   <span>Read Our Full Charter</span>
-                  <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                  <ArrowRight size={16} />
                 </Link>
               </div>
             </div>
@@ -88,7 +89,7 @@ export default function AboutMutualAid() {
             </div>
             <Link to="/philosophy" className="px-space-lg py-space-sm rounded-xl bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-all shadow-sm w-fit inline-flex items-center gap-space-xs">
               <span>Explore Protocol</span>
-              <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+              <ArrowRight size={16} />
             </Link>
           </div>
 
@@ -96,7 +97,7 @@ export default function AboutMutualAid() {
             <div className="p-space-lg rounded-3xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md border border-surface-container/50">
               <div className="flex items-center justify-between">
                 <span className="px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold">Step 01</span>
-                <span className="material-symbols-outlined text-secondary text-[24px]">edit_note</span>
+                <PenLine size={24} className="text-secondary" />
               </div>
               <div className="flex flex-col gap-space-xs">
                 <h3 className="font-headline-sm text-headline-sm text-on-surface">Post Need</h3>
@@ -107,7 +108,7 @@ export default function AboutMutualAid() {
             <div className="p-space-lg rounded-3xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md border border-surface-container/50">
               <div className="flex items-center justify-between">
                 <span className="px-space-sm py-1 rounded-full bg-primary-fixed text-primary font-label-sm text-label-sm font-bold">Step 02</span>
-                <span className="material-symbols-outlined text-primary text-[24px]">explore</span>
+                <Compass size={24} className="text-primary" />
               </div>
               <div className="flex flex-col gap-space-xs">
                 <h3 className="font-headline-sm text-headline-sm text-on-surface">Smart Match</h3>
@@ -118,7 +119,7 @@ export default function AboutMutualAid() {
             <div className="p-space-lg rounded-3xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md border border-surface-container/50">
               <div className="flex items-center justify-between">
                 <span className="px-space-sm py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-bold">Step 03</span>
-                <span className="material-symbols-outlined text-secondary text-[24px]">mark_chat_read</span>
+                <CheckCheck size={24} className="text-secondary" />
               </div>
               <div className="flex flex-col gap-space-xs">
                 <h3 className="font-headline-sm text-headline-sm text-on-surface">Double Acceptance</h3>
@@ -129,7 +130,7 @@ export default function AboutMutualAid() {
             <div className="p-space-lg rounded-3xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md border border-surface-container/50">
               <div className="flex items-center justify-between">
                 <span className="px-space-sm py-1 rounded-full bg-primary-fixed-dim text-primary font-label-sm text-label-sm font-bold">Step 04</span>
-                <span className="material-symbols-outlined text-primary-container text-[24px]">verified_user</span>
+                <ShieldCheckAlt size={24} className="text-primary-container" />
               </div>
               <div className="flex flex-col gap-space-xs">
                 <h3 className="font-headline-sm text-headline-sm text-on-surface">Verified Record</h3>

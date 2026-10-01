@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { handleImgError } from '../../utils/imageFallback';
+import { ArrowRight, HeartHandshake, Users, MapPin, BadgeCheck } from 'lucide-react';
 
 export default function HeroBanner() {
   return (
@@ -44,11 +45,11 @@ export default function HeroBanner() {
             <div className="flex flex-wrap items-center gap-space-md pt-space-xs">
               <Link to="/need-help" className="px-space-xl py-space-md rounded-xl bg-surface text-primary font-bold font-label-md text-label-md hover:bg-surface-container transition-all shadow-lg flex items-center justify-center gap-space-xs">
                 <span>I Need Help</span>
-                <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+                <ArrowRight size={18} />
               </Link>
               <Link to="/offer-help" className="px-space-xl py-space-md rounded-xl bg-transparent border-2 border-surface/40 hover:border-surface text-on-primary font-bold font-label-md text-label-md hover:bg-surface/10 transition-all flex items-center justify-center gap-space-xs shadow-sm backdrop-blur-sm">
                 <span>I Can Help</span>
-                <span className="material-symbols-outlined text-[18px]">volunteer_activism</span>
+                <HeartHandshake size={18} />
               </Link>
             </div>
 
@@ -76,15 +77,15 @@ export default function HeroBanner() {
       <div className="w-full bg-primary-container py-space-sm text-on-primary overflow-hidden select-none">
         <div className="max-w-[1280px] mx-auto px-margin flex items-center justify-around text-center gap-space-md text-sm uppercase tracking-widest font-label-md">
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-[16px]">diversity_1</span>
+            <Users size={16} />
             <span>Reciprocal Aid</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-[16px]">location_on</span>
+            <MapPin size={16} />
             <span>Hyperlocal Radius</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-[16px]">verified</span>
+            <BadgeCheck size={16} />
             <span>Zero Fees &amp; No Ratings</span>
           </div>
         </div>
