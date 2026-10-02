@@ -45,8 +45,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
       }
 
       const data = await response.json();
-
-      setUser(data.user);
+      setUser(data.data.user);
     } catch (error) {
       console.error("Failed to fetch current user:", error);
       setUser(null);

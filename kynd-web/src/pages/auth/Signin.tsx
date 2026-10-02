@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext.tsx";
+import { useAuth } from "../../context/AuthContext.tsx";
 import {
   ArrowRight,
   Eye,
@@ -13,9 +13,9 @@ import {
   IndianRupee,
 } from "lucide-react";
 import { ClipLoader } from "react-spinners";
-import { apiFetch } from "../lib/api-client";
-import { toast } from "../lib/toast";
-import { handleImgError } from "../utils/imageFallback";
+import { apiFetch } from "../../lib/api-client";
+import { toast } from "../../lib/toast";
+import { handleImgError } from "../../utils/imageFallback";
 
 export default function Signin() {
   const navigate = useNavigate();

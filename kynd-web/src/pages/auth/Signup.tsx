@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { handleImgError } from "../utils/imageFallback";
-import { toast } from "../lib/toast";
-import { apiFetch } from "../lib/api-client";
+import { handleImgError } from "../../utils/imageFallback";
+import { toast } from "../../lib/toast";
+import { apiFetch } from "../../lib/api-client";
 import { BeatLoader } from "react-spinners";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 import {
   Flower2,
   ShieldCheck,

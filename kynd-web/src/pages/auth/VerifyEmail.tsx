@@ -10,7 +10,7 @@ import {
   XCircle,
 } from "lucide-react";
 import { ClipLoader } from "react-spinners";
-import { apiFetch } from "../lib/api-client";
+import { apiFetch } from "../../lib/api-client";
 
 type VerificationState = "loading" | "success" | "error";
 

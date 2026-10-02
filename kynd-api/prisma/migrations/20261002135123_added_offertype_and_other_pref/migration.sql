@@ -1,0 +1,21 @@
+-- CreateEnum
+CREATE TYPE "UserIntent" AS ENUM ('LOOKING_FOR_HELP', 'OFFERING_HELP', 'CONTRIBUTE', 'ORGANIZE', 'JUST_BROWSING');
+
+-- CreateEnum
+CREATE TYPE "OfferingHelpIntent" AS ENUM ('MENTAL_HEALTH', 'FINANCIAL_ASSISTANCE', 'FOOD', 'TRANSPORTATION', 'CHILDCARE', 'PETCARE', 'HOUSING', 'LEGAL_ASSISTANCE', 'EDUCATION', 'TECHNICAL_SUPPORT', 'EMPLOYMENT', 'MEDICAL_ASSISTANCE', 'VOLUNTEERING', 'OTHER');
+
+-- CreateEnum
+CREATE TYPE "DayOfWeek" AS ENUM ('SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY');
+
+-- AlterTable
+ALTER TABLE "User" ADD COLUMN     "areaLabel" TEXT,
+ADD COLUMN     "areaLatitude" DOUBLE PRECISION,
+ADD COLUMN     "areaLongitude" DOUBLE PRECISION,
+ADD COLUMN     "availabilityTime" TEXT,
+ADD COLUMN     "bio" TEXT,
+ADD COLUMN     "communityHelpRadius" INTEGER NOT NULL DEFAULT 2,
+ADD COLUMN     "dayOfWeekAvailability" "DayOfWeek"[] DEFAULT ARRAY[]::"DayOfWeek"[],
+ADD COLUMN     "intent" "UserIntent"[] DEFAULT ARRAY['JUST_BROWSING']::"UserIntent"[],
+ADD COLUMN     "offeringHelpIntent" "OfferingHelpIntent"[] DEFAULT ARRAY[]::"OfferingHelpIntent"[],
+ADD COLUMN     "personalHelpRadius" INTEGER NOT NULL DEFAULT 2,
+ADD COLUMN     "profileImage" TEXT;

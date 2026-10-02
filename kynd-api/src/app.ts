@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+import path from "node:path";
 import authRoutes from "./routes/auth-routes.ts";
 // import appsRoutes from "./routes/apps.routes";
 // import vaultRoutes from "./routes/vault.routes";
@@ -19,6 +20,7 @@ app.use(
 );
 app.use(cookieParser());
 app.use(express.json());
+app.use("/uploads", express.static(path.resolve("uploads")));
 
 app.get("/", (req, res) => {
   res.status(200).send("Backend is running successfully!");

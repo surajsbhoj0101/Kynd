@@ -12,8 +12,8 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { ClipLoader } from "react-spinners";
-import { apiFetch } from "../lib/api-client";
-import { toast } from "../lib/toast";
+import { apiFetch } from "../../lib/api-client";
+import { toast } from "../../lib/toast";
 
 export default function ResetPassword() {
   const [searchParams] = useSearchParams();
@@ -76,7 +76,7 @@ export default function ResetPassword() {
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-linear-to-br from-surface via-surface-container-low to-primary-fixed/30 p-4 sm:p-8">
-      <div className="grid w-full max-w-5xl overflow-hidden rounded-4xl border border-surface-container-high bg-surface-container-lowest shadow-2xl lg:grid-cols-[0.9fr_1.1fr]">
+      <div className="grid w-full max-w-6xl overflow-hidden rounded-4xl border border-surface-container-high bg-surface-container-lowest shadow-2xl lg:grid-cols-[0.9fr_1.1fr]">
         <aside className="relative hidden overflow-hidden bg-primary p-8 text-on-primary lg:flex lg:flex-col lg:justify-between">
           <img
             src="/images/6abb389d3804fbd99866b3ed_1.png"
@@ -150,7 +150,7 @@ export default function ResetPassword() {
             </div>
           ) : (
             <>
-              <div className="mt-16 max-w-lg">
+              <div className="mt-8 max-w-lg">
                 <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-secondary-container text-secondary">
                   <KeyRound size={26} />
                 </div>

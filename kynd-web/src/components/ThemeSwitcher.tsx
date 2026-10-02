@@ -39,7 +39,10 @@ export default function ThemeSwitcher() {
         aria-label="Change theme"
         className="w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-xl active:scale-95"
         style={{
-          background: `linear-gradient(135deg, ${currentTheme.swatch}, ${currentTheme.vars["--color-primary-container"] || currentTheme.swatch})`,
+          background: `linear-gradient(135deg, ${currentTheme.swatch}, ${
+            currentTheme.vars["--color-primary-container"] ||
+            currentTheme.swatch
+          })`,
         }}
       >
         {isOpen ? (
@@ -101,16 +104,17 @@ export default function ThemeSwitcher() {
                   {/* Swatch Circle */}
                   <div className="relative">
                     <div
-                      className="w-10 h-10 rounded-full shadow-md transition-shadow group-hover:shadow-lg flex items-center justify-center text-lg"
+                      className="w-10 h-10 rounded-full shadow-md transition-shadow group-hover:shadow-lg flex items-center justify-center"
                       style={{
-                        background: `linear-gradient(135deg, ${theme.swatch}, ${theme.vars["--color-primary-container"] || theme.swatch})`,
+                        background: `linear-gradient(135deg, ${theme.swatch}, ${
+                          theme.vars["--color-primary-container"] ||
+                          theme.swatch
+                        })`,
                       }}
                     >
                       {isActive ? (
                         <Check size={18} className="text-white" />
-                      ) : (
-                        <span>{theme.icon}</span>
-                      )}
+                      ) : null}
                     </div>
                   </div>
 

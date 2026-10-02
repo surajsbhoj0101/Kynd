@@ -21,14 +21,60 @@ enum OAuthProvider {
   GOOGLE
 }
 
+enum UserIntent {
+  LOOKING_FOR_HELP
+  OFFERING_HELP
+  CONTRIBUTE
+  ORGANIZE
+  JUST_BROWSING
+}
+
+enum OfferingHelpIntent {
+  MENTAL_HEALTH
+  FINANCIAL_ASSISTANCE
+  FOOD
+  TRANSPORTATION
+  CHILDCARE
+  PETCARE
+  HOUSING
+  LEGAL_ASSISTANCE
+  EDUCATION
+  TECHNICAL_SUPPORT
+  EMPLOYMENT
+  MEDICAL_ASSISTANCE
+  VOLUNTEERING
+  OTHER
+}
+
+enum DayOfWeek {
+  SUNDAY
+  MONDAY
+  TUESDAY
+  WEDNESDAY
+  THURSDAY
+  FRIDAY
+  SATURDAY
+}
+
 model User {
-  id           String             @id @default(cuid())
-  name         String
-  email        String             @unique
-  passwordHash String?
-  status       VerificationStatus @default(PENDING)
-  createdAt    DateTime           @default(now())
-  updatedAt    DateTime           @default(now()) @updatedAt
+  id                    String               @id @default(cuid())
+  name                  String
+  email                 String               @unique
+  passwordHash          String?
+  status                VerificationStatus   @default(PENDING)
+  profileImage          String?
+  bio                   String?
+  intent                UserIntent[]         @default([JUST_BROWSING])
+  offeringHelpIntent    OfferingHelpIntent[] @default([])
+  dayOfWeekAvailability DayOfWeek[]          @default([])
+  availabilityTime      String?
+  areaLabel             String?
+  areaLongitude         Float?
+  areaLatitude          Float?
+  personalHelpRadius    Int                  @default(2)
+  communityHelpRadius   Int                  @default(2)
+  createdAt             DateTime             @default(now())
+  updatedAt             DateTime             @default(now()) @updatedAt
 
   refreshTokens       RefreshToken[]
   passwordResetTokens PasswordResetToken[]

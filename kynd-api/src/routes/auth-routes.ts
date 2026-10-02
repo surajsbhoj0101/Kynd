@@ -1,5 +1,7 @@
 import express from "express";
-// import { requireAuth } from "../middlewares/requireAuth";
+import { requireAuth } from "../middlewares/requireAuth.ts";
+import { saveOnboarding } from "../controllers/onboarding-controller.ts";
+import { uploadProfileImage } from "../config/upload.ts";
 import {
   //   checkAuth,
   signup,
@@ -28,6 +30,12 @@ authRoutes.get("/me", getCurrentUser);
 authRoutes.post("/logout", logout);
 authRoutes.get("/google/login", loginWithGoogle);
 authRoutes.get("/google/callback", googleOAuthCallback);
+authRoutes.put(
+  "/onboarding",
+  requireAuth,
+  uploadProfileImage.single("profileImage"),
+  saveOnboarding,
+);
 // authRoutes.get("/is-authorized", checkAuth);
 // authRoutes.get("/get-nonce", getNonce);
 // authRoutes.post("/logout", logout);
