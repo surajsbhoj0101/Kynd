@@ -9,50 +9,69 @@ import Signin from "./pages/auth/Signin.tsx";
 import ForgotPassword from "./pages/auth/ForgotPassword.tsx";
 import ResetPassword from "./pages/auth/ResetPassword.tsx";
 import "./index.css";
-import { AuthProvider } from "./context/AuthContext.tsx";
 import { ThemeProvider } from "./context/ThemeContext.tsx";
 import ThemeSwitcher from "./components/ThemeSwitcher.tsx";
 import Onboarding from "./pages/onboarding/Onboarding.tsx";
+import AuthLayout from "./components/auth/AuthLayout.tsx";
+import { GuestRoute, OnboardingRoute } from "./components/auth/RouteGuards.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
   },
+
   {
-    path: "/signup",
-    element: <Signup />,
-  },
-  {
-    path: "/signin",
-    element: <Signin />,
-  },
-  {
-    path: "/verify-email",
-    element: <VerifyEmail />,
-  },
-  {
-    path: "/forgot-password",
-    element: <ForgotPassword />,
-  },
-  {
-    path: "/reset-password",
-    element: <ResetPassword />,
-  },
-  {
-    path: "/onboarding",
-    element: <Onboarding />,
+    element: <AuthLayout />,
+    children: [
+      {
+        element: <GuestRoute />,
+        children: [
+          {
+            path: "/signup",
+            element: <Signup />,
+          },
+          {
+            path: "/signin",
+            element: <Signin />,
+          },
+        ],
+      },
+
+      {
+        path: "/verify-email",
+        element: <VerifyEmail />,
+      },
+
+      {
+        path: "/forgot-password",
+        element: <ForgotPassword />,
+      },
+
+      {
+        path: "/reset-password",
+        element: <ResetPassword />,
+      },
+
+      {
+        element: <OnboardingRoute />,
+        children: [
+          {
+            path: "/onboarding",
+            element: <Onboarding />,
+          },
+        ],
+      },
+    ],
   },
 ]);
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ThemeProvider>
-      <AuthProvider>
-        <RouterProvider router={router} />
-        <ThemeSwitcher />
-        <Toaster position="top-right" richColors />
-      </AuthProvider>
+      <RouterProvider router={router} />
+      <ThemeSwitcher />
+      <Toaster position="top-right" richColors />
     </ThemeProvider>
   </StrictMode>,
 );

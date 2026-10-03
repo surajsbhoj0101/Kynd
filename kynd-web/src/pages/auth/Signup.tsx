@@ -317,8 +317,8 @@ export default function Signup() {
               {/* Form */}
               <form onSubmit={handleSubmit} className="flex flex-col gap-2.5">
                 {/* Name */}
-                <div className="flex flex-col gap-1">
-                  <label className="font-label-md text-xs font-bold text-on-surface">
+                <div className="flex flex-col font-bold gap-1">
+                  <label className="font-label-md text-xs  text-on-surface">
                     Name
                   </label>
                   <input
@@ -332,8 +332,8 @@ export default function Signup() {
                 </div>
 
                 {/* Email */}
-                <div className="flex flex-col gap-1">
-                  <label className="font-label-md text-xs font-bold text-on-surface">
+                <div className="flex flex-col font-bold gap-1">
+                  <label className="font-label-md text-xs  text-on-surface">
                     Email Address
                   </label>
 
@@ -348,8 +348,8 @@ export default function Signup() {
                 </div>
 
                 {/* Password */}
-                <div className="flex flex-col gap-1">
-                  <label className="font-label-md text-xs font-bold text-on-surface">
+                <div className="flex flex-col gap-1 font-bold">
+                  <label className="font-label-md text-xs text-on-surface">
                     Password
                   </label>
                   <span className="relative">
@@ -377,8 +377,8 @@ export default function Signup() {
                 </div>
 
                 {/* Confirm Password */}
-                <div className="flex flex-col gap-1">
-                  <label className="font-label-md text-xs font-bold text-on-surface">
+                <div className="flex flex-col font-bold gap-1">
+                  <label className="font-label-md text-xs  text-on-surface">
                     Confirm Password
                   </label>
                   <span className="relative">

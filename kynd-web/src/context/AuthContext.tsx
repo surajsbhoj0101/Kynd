@@ -8,11 +8,17 @@ import {
 } from "react";
 import { apiFetch } from "../lib/api-client.ts";
 
-type User = {
+export enum AccountStatus {
+  PENDING = "PENDING",
+  ONBOARDING = "ONBOARDING",
+  ACTIVE = "ACTIVE",
+}
+
+export type User = {
   id: string;
   name: string;
   email: string;
-  status: string;
+  status: AccountStatus;
 };
 
 type AuthContextType = {
@@ -20,7 +26,7 @@ type AuthContextType = {
   loading: boolean;
   isAuthenticated: boolean;
   logout: () => Promise<void>;
-  fetchUser: () => Promise<void>;
+  fetchUser: () => Promise<User | null>;
 };
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -33,7 +39,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
     fetchUser();
   }, []);
 
-  async function fetchUser() {
+  async function fetchUser(): Promise<User | null> {
     try {
       const response = await apiFetch(
         `${import.meta.env.VITE_BASE_URL}/api/auth/me`,
@@ -41,14 +47,17 @@ export function AuthProvider({ children }: PropsWithChildren) {
 
       if (!response.ok) {
         setUser(null);
-        return;
+        return null;
       }
 
       const data = await response.json();
-      setUser(data.data.user);
+      const currentUser = data.data.user as User;
+      setUser(currentUser);
+      return currentUser;
     } catch (error) {
       console.error("Failed to fetch current user:", error);
       setUser(null);
+      return null;
     } finally {
       setLoading(false);
     }

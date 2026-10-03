@@ -14,7 +14,8 @@ datasource db {
 
 enum VerificationStatus {
   PENDING
-  COMPLETE
+  ONBOARDING
+  ACTIVE
 }
 
 enum OAuthProvider {

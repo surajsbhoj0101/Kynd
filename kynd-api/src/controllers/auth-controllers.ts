@@ -88,7 +88,10 @@ export const signup = async (req: Request, res: Response) => {
       },
     });
 
-    if (existingUser?.status === "COMPLETE") {
+    if (
+      existingUser?.status === "ACTIVE" ||
+      existingUser?.status === "ONBOARDING"
+    ) {
       return ApiResponse.conflict(
         res,
         "User with this email already exists",
@@ -258,7 +261,7 @@ export const signin = async (req: Request, res: Response) => {
       );
     }
 
-    if (user.status !== "COMPLETE") {
+    if (user.status === "PENDING") {
       return ApiResponse.forbidden(
         res,
         "Please verify your email before signing in",
@@ -571,7 +574,7 @@ export const resendVerificationEmail = async (req: Request, res: Response) => {
       );
     }
 
-    if (user.status === "COMPLETE") {
+    if (user.status !== "PENDING") {
       return ApiResponse.conflict(
         res,
         "User with this email is already verified",
@@ -679,7 +682,7 @@ export const verifyEmail = async (req: Request, res: Response) => {
       );
     }
 
-    if (user.status === "COMPLETE") {
+    if (user.status !== "PENDING") {
       return ApiResponse.success(
         res,
         { email: user.email },
@@ -689,7 +692,7 @@ export const verifyEmail = async (req: Request, res: Response) => {
 
     await prisma.user.update({
       where: { id: user.id },
-      data: { status: "COMPLETE" },
+      data: { status: "ONBOARDING" },
     });
 
     return ApiResponse.success(
@@ -1040,13 +1043,13 @@ export const googleOAuthCallback = async (req: Request, res: Response) => {
         data: {
           email: normalizedEmail,
           name: googleUser.name || normalizedEmail.split("@")[0],
-          status: "COMPLETE",
+          status: "ONBOARDING",
         },
       });
     } else if (user.status === "PENDING") {
       user = await prisma.user.update({
         where: { id: user.id },
-        data: { status: "COMPLETE" },
+        data: { status: "ONBOARDING" },
       });
     }
 

@@ -32,7 +32,7 @@ export default function ThemeSwitcher() {
   }, [isOpen]);
 
   return (
-    <div ref={panelRef} className="fixed bottom-6 right-6 z-[9999]">
+    <div ref={panelRef} className="fixed bottom-6 right-6 z-9999">
       {/* Floating Action Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
@@ -55,7 +55,7 @@ export default function ThemeSwitcher() {
       {/* Theme Panel */}
       {isOpen && (
         <div
-          className="absolute bottom-[72px] right-0 w-72 rounded-2xl shadow-2xl border overflow-hidden"
+          className="absolute bottom-18 right-0 w-72 rounded-2xl shadow-2xl border overflow-hidden"
           style={{
             backgroundColor: "var(--color-surface)",
             borderColor: "var(--color-outline-variant)",

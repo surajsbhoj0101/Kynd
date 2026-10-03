@@ -16,6 +16,7 @@ import { ClipLoader } from "react-spinners";
 import { apiFetch } from "../../lib/api-client";
 import { toast } from "../../lib/toast";
 import { handleImgError } from "../../utils/imageFallback";
+import { AccountStatus } from "../../context/AuthContext.tsx";
 
 export default function Signin() {
   const navigate = useNavigate();
@@ -57,9 +58,11 @@ export default function Signin() {
         return;
       }
 
-      await fetchUser();
+      const currentUser = await fetchUser();
       toast.success("Welcome back to Kynd.");
-      navigate("/");
+      navigate(
+        currentUser?.status === AccountStatus.ONBOARDING ? "/onboarding" : "/",
+      );
     } catch (error) {
       console.error("Signin error:", error);
       toast.error("Unable to connect. Please try again.");

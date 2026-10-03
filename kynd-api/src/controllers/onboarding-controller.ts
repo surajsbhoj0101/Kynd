@@ -150,8 +150,25 @@ export async function saveOnboarding(req: Request, res: Response) {
   try {
     const existingUser = await prisma.user.findUnique({
       where: { id: userId },
-      select: { profileImage: true },
+      select: { profileImage: true, status: true },
     });
+
+    if (!existingUser) {
+      return ApiResponse.notFound(
+        res,
+        "User account not found.",
+        "USER_NOT_FOUND",
+      );
+    }
+
+    if (existingUser.status === "PENDING") {
+      return ApiResponse.forbidden(
+        res,
+        "Please verify your email before completing onboarding.",
+        "EMAIL_NOT_VERIFIED",
+      );
+    }
+
     const profileImage =
       uploadedProfileImage(req) ?? existingUser?.profileImage ?? null;
 
@@ -170,6 +187,7 @@ export async function saveOnboarding(req: Request, res: Response) {
         areaLatitude: latitude,
         personalHelpRadius,
         communityHelpRadius,
+        status: "ACTIVE",
       },
       select: {
         id: true,
@@ -185,6 +203,7 @@ export async function saveOnboarding(req: Request, res: Response) {
         areaLatitude: true,
         personalHelpRadius: true,
         communityHelpRadius: true,
+        status: true,
       },
     });
 

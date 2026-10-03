@@ -75,9 +75,9 @@ export default function VerifyEmail() {
   );
 
   return (
-    <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-surface via-surface-container-low to-primary-fixed/30 px-4 py-8 sm:px-6">
-      <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full border-[24px] border-primary/5" />
-      <div className="pointer-events-none absolute -bottom-32 -left-20 h-80 w-80 rounded-full border-[32px] border-secondary/5" />
+    <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-linear-to-br from-surface via-surface-container-low to-primary-fixed/30 px-4 py-8 sm:px-6">
+      <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full border-24 border-primary/5" />
+      <div className="pointer-events-none absolute -bottom-32 -left-20 h-80 w-80 rounded-full border-32 border-secondary/5" />
 
       <section className="relative grid w-full max-w-4xl overflow-hidden rounded-[1.75rem] border border-surface-container-high bg-surface-container-lowest shadow-xl lg:grid-cols-[0.8fr_1.2fr]">
         <div className="hidden flex-col justify-between bg-primary p-8 text-on-primary lg:flex">
