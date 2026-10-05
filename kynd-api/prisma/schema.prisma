@@ -1,0 +1,174 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum AccountStatus {
+  PENDING
+  ONBOARDING
+  ACTIVE
+  SUSPENDED
+}
+
+enum OAuthProvider {
+  GOOGLE
+}
+
+enum UserIntent {
+  LOOKING_FOR_HELP
+  OFFERING_HELP
+  CONTRIBUTE
+  ORGANIZE
+  JUST_BROWSING
+}
+
+enum OfferingHelpIntent {
+  MENTAL_HEALTH
+  FINANCIAL_ASSISTANCE
+  FOOD
+  TRANSPORTATION
+  CHILDCARE
+  PETCARE
+  HOUSING
+  LEGAL_ASSISTANCE
+  EDUCATION
+  TECHNICAL_SUPPORT
+  EMPLOYMENT
+  MEDICAL_ASSISTANCE
+  VOLUNTEERING
+  OTHER
+}
+
+enum DayOfWeek {
+  SUNDAY
+  MONDAY
+  TUESDAY
+  WEDNESDAY
+  THURSDAY
+  FRIDAY
+  SATURDAY
+}
+
+model User {
+  id           String        @id @default(cuid())
+  email        String        @unique
+  name         String
+  status       AccountStatus @default(PENDING)
+  passwordHash String?
+
+  profile             UserProfile?
+  location            UserLocation?
+  preference          UserPreference?
+  accounts            Account[]
+  refreshTokens       RefreshToken[]
+  passwordResetTokens PasswordResetToken[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model UserProfile {
+  id     String @id @default(cuid())
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  profileImage       String?
+  bio                String?
+  intent             UserIntent[]         @default([JUST_BROWSING])
+  offeringHelpIntent OfferingHelpIntent[] @default([])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model UserLocation {
+  id     String @id @default(cuid())
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  areaLabel     String?
+  areaLongitude Float?
+  areaLatitude  Float?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model UserPreference {
+  id     String @id @default(cuid())
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  personalHelpRadius  Int @default(2)
+  communityHelpRadius Int @default(2)
+
+  availability UserAvailability[]
+  createdAt    DateTime           @default(now())
+  updatedAt    DateTime           @updatedAt
+}
+
+model UserAvailability {
+  id             String         @id @default(cuid())
+  userId         String
+  userpreference UserPreference @relation(fields: [userId], references: [id], onDelete: Cascade)
+  day            DayOfWeek
+  startTime      String
+  endTime        String
+
+  @@index([userId])
+}
+
+model Account {
+  id String @id @default(cuid())
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  provider          OAuthProvider
+  providerAccountId String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+}
+
+model RefreshToken {
+  id        String    @id @default(cuid())
+  userId    String
+  tokenHash String    @unique
+  familyId  String
+  expiresAt DateTime
+  revokedAt DateTime?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([familyId])
+}
+
+model PasswordResetToken {
+  id        String    @id @default(cuid())
+  userId    String
+  tokenHash String    @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+}
