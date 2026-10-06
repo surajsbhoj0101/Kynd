@@ -103,6 +103,9 @@ function Home() {
               <button className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-surface-container-high px-3 py-1.5 text-[10px] font-bold text-on-surface-variant">
                 <Plus size={12} /> Offer service / aid
               </button>
+              <button className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-surface-container-high px-3 py-1.5 text-[10px] font-bold text-on-surface-variant">
+                <MessageCircle size={12} /> Community Discussion / Awareness
+              </button>
             </div>
           </div>
 

@@ -51,6 +51,8 @@ function StepOne({
       name: profileDetails.name.trim(),
       bio: profileDetails.bio.trim(),
       profileImage: profileDetails.profileImage,
+      interests: profileDetails.interests,
+      skills: profileDetails.skills,
     });
   };
 

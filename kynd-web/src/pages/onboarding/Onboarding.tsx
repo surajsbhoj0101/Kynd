@@ -5,11 +5,8 @@ import StepTwo from "../../components/onboarding/StepTwo.tsx";
 import { useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import {
-  AvailabilityDetails,
-  DayOfWeek,
-  IntentDetails,
-  IntentType,
-  OfferType,
+  LocationDetails,
+  PreferenceDetails,
   ProfileDetails,
 } from "../../types/onboarding-types.ts";
 import { useAuth } from "../../context/AuthContext.tsx";
@@ -25,6 +22,8 @@ function Onboarding() {
     name: "",
     bio: "",
     profileImage: null,
+    interests: [],
+    skills: [],
   });
 
   useEffect(() => {
@@ -40,27 +39,19 @@ function Onboarding() {
     }));
   }, [user, loading]);
 
-  const [intentDetails, setIntentDetails] = useState<IntentDetails>({
-    intent: [IntentType.JUST_BROWSING],
-    offer: [OfferType.OTHER],
+  const [locationDetails, setLocationDetails] = useState<LocationDetails>({
+    label: "",
+    longitude: null,
+    latitude: null,
   });
-
-  const [availabilityDetails, setAvailabilityDetails] =
-    useState<AvailabilityDetails>({
-      availability: {
-        [DayOfWeek.MONDAY]: [],
-      },
-      area: {
-        label: "",
-        longitude: null,
-        latitude: null,
-      },
-      personalHelpRadius: 2,
-      communityHelpRadius: 2,
+  const [preferenceDetails, setPreferenceDetails] =
+    useState<PreferenceDetails>({
+      localityRadius: 2,
+      localCommunityRadius: 2,
     });
 
-  const saveOnboarding = async (details: AvailabilityDetails) => {
-    if (details.area.longitude === null || details.area.latitude === null) {
+  const saveOnboarding = async (details: LocationDetails) => {
+    if (details.longitude === null || details.latitude === null) {
       toast.error("Use Locate to confirm your area before finishing setup.");
       return;
     }
@@ -73,10 +64,12 @@ function Onboarding() {
         JSON.stringify({
           name: profileDetails.name,
           bio: profileDetails.bio,
+          interests: profileDetails.interests,
+          skills: profileDetails.skills,
         }),
       );
-      formData.append("intentDetails", JSON.stringify(intentDetails));
-      formData.append("availabilityDetails", JSON.stringify(details));
+      formData.append("locationDetails", JSON.stringify(details));
+      formData.append("preferenceDetails", JSON.stringify(preferenceDetails));
 
       if (profileDetails.profileImage) {
         formData.append("profileImage", profileDetails.profileImage);
@@ -96,7 +89,7 @@ function Onboarding() {
       }
 
       await fetchUser();
-      setAvailabilityDetails(details);
+      setLocationDetails(details);
       setOnboardingStep(4);
       toast.success("Your onboarding details have been saved.");
     } catch (error) {
@@ -124,11 +117,13 @@ function Onboarding() {
       case 2:
         return (
           <StepTwo
-            intentDetails={intentDetails}
+            profileDetails={profileDetails}
             onBack={() => setOnboardingStep(1)}
-            onChange={setIntentDetails}
+            onChange={(details) => {
+              setProfileDetails((current) => ({ ...current, ...details }));
+            }}
             onContinue={(details) => {
-              setIntentDetails(details);
+              setProfileDetails((current) => ({ ...current, ...details }));
               setOnboardingStep(3);
             }}
           />
@@ -136,9 +131,11 @@ function Onboarding() {
       case 3:
         return (
           <StepThree
-            availabilityDetails={availabilityDetails}
+            locationDetails={locationDetails}
+            preferenceDetails={preferenceDetails}
             onBack={() => setOnboardingStep(2)}
-            onChange={setAvailabilityDetails}
+            onChangeLocation={setLocationDetails}
+            onChangePreferences={setPreferenceDetails}
             onComplete={saveOnboarding}
             saving={saving}
           />

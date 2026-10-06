@@ -16,6 +16,10 @@ export default function TrustAndFaq() {
       answer: "Yes, Kynd is 100% free community infrastructure. There are no service fees, no transactional commissions, and no paywalls. We are supported by civic grants, verified municipal partners, and community donations."
     },
     {
+      question: "What can I do on Kynd besides mutual help?",
+      answer: "Kynd is a full local community platform! You can discover neighborhood events, join interest groups (gaming, fitness, pets, food, and more), buy and sell locally, network for careers, volunteer for community drives, and connect with local businesses — all within your chosen radius."
+    },
+    {
       question: "How does Kynd ensure personal safety?",
       answer: "Safety is structural: every account undergoes mandatory phone verification, private addresses are never displayed publicly, both members must accept the match before chat opens, and built-in check-in alerts let trusted contacts track active sessions."
     },
@@ -24,12 +28,12 @@ export default function TrustAndFaq() {
       answer: "Mutual aid is built on human dignity and shared community, not transactional reviews. Star ratings penalize vulnerable people and turn kindness into a popularity contest. Instead, Kynd displays simple, verified contribution histories."
     },
     {
-      question: "Can organizations and nonprofits use Kynd?",
-      answer: "Yes! 501(c)(3) charities, schools, community gardens, and registered local initiatives can register an Organization profile to organize weekend teams, assemble volunteers, and broadcast urgent neighborhood drives."
+      question: "What are locality and community radius?",
+      answer: "You control two radii: your locality radius (1-3 km) determines what nearby content and neighbors you see. Your community radius (up to 10-15 km) expands your reach for group events, community drives, and broader interest groups. Both are fully adjustable."
     },
     {
-      question: "How do radius preferences work?",
-      answer: "You have complete control: you can set your direct personal help radius to a tight 1 to 3 kilometers (walking distance), while expanding your group activity or emergency aid radius up to 10-15 kilometers."
+      question: "Can organizations and nonprofits use Kynd?",
+      answer: "Yes! Charities, schools, community gardens, and registered local initiatives can register an Organization profile to organize weekend teams, assemble volunteers, and broadcast urgent neighborhood drives."
     }
   ];
 
@@ -45,10 +49,10 @@ export default function TrustAndFaq() {
           <div className="flex flex-col gap-space-xs text-center items-center max-w-2xl mx-auto">
             <span className="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">Safety First</span>
             <h2 className="font-headline-lg text-headline-lg text-on-surface tracking-tight">
-              Built Ground-Up for Neighborhood Safety
+              A Community Built on Trust &amp; Safety
             </h2>
             <p className="font-body-md text-body-md text-on-surface-variant">
-              We combine real-identity verification with active safety tools so neighbors feel completely comfortable reaching out or meeting up.
+              We combine real-identity verification with active safety tools so you feel completely comfortable connecting with your community.
             </p>
           </div>
 
@@ -81,8 +85,8 @@ export default function TrustAndFaq() {
               <div className="w-12 h-12 rounded-xl bg-error-container flex items-center justify-center text-on-error-container">
                 <Siren size={24} />
               </div>
-              <h4 className="font-title-md text-title-md text-on-surface">Civic Moderation</h4>
-              <p className="font-body-sm text-body-sm text-on-surface-variant">Active neighborhood moderators provide rapid assistance 24/7.</p>
+              <h4 className="font-title-md text-title-md text-on-surface">Community Moderation</h4>
+              <p className="font-body-sm text-body-sm text-on-surface-variant">Active community moderators ensure safe, respectful interactions 24/7.</p>
             </div>
           </div>
 
@@ -90,7 +94,7 @@ export default function TrustAndFaq() {
             <div className="flex items-center gap-space-sm">
               <Scale size={28} className="text-primary" />
               <span className="font-body-sm text-body-sm text-on-surface">
-                Read our <strong>Mutual Trust Standard</strong> to learn how personal addresses are never exposed until both parties agree.
+                Read our <strong>Community Trust Standard</strong> to learn how personal privacy is protected across all interactions.
               </span>
             </div>
             <Link to="/safety" className="font-label-md text-label-md text-primary font-bold hover:underline shrink-0">
@@ -112,16 +116,16 @@ export default function TrustAndFaq() {
                   <span className="text-primary">We Have Answers.</span>
                 </h2>
                 <p className="font-body-md text-body-md text-on-surface-variant">
-                  Everything you need to know about our mutual help protocol, verified privacy, and zero-fee structure.
+                  Everything you need to know about Kynd — community features, mutual help, privacy, and more.
                 </p>
               </div>
               <div className="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm">
                 <span className="font-title-md text-title-md text-on-surface">Still have a question?</span>
                 <p className="font-body-sm text-body-sm text-on-surface-variant">
-                  Our neighborhood guides and moderators are active around the clock.
+                  Our community guides and moderators are active around the clock.
                 </p>
                 <Link to="/safety" className="px-space-md py-space-sm rounded-xl bg-primary text-on-primary font-label-md text-label-md text-center hover:bg-primary-container transition-colors shadow-sm">
-                  Contact Civic Support
+                  Contact Community Support
                 </Link>
               </div>
             </div>

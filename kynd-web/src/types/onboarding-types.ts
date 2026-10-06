@@ -1,71 +1,63 @@
-export enum IntentType {
-  LOOKING_FOR_HELP = "looking_for_help",
-  OFFERING_HELP = "offering_help",
-  CONTRIBUTE = "contribute",
-  ORGANIZE = "organize",
-  JUST_BROWSING = "just_browsing",
+export enum InterestType {
+  NEIGHBORHOOD = "NEIGHBORHOOD",
+  COMMUNITY = "COMMUNITY",
+  EDUCATION = "EDUCATION",
+  SPORTS = "SPORTS",
+  FITNESS = "FITNESS",
+  TECHNOLOGY = "TECHNOLOGY",
+  PETS = "PETS",
+  ENVIRONMENT = "ENVIRONMENT",
+  EVENTS = "EVENTS",
+  FOOD = "FOOD",
+  HOBBIES = "HOBBIES",
+  GAMING = "GAMING",
+  CAREER = "CAREER",
+  LOCAL_BUSINESS = "LOCAL_BUSINESS",
+  BUY_SELL = "BUY_SELL",
+  TRAVEL = "TRAVEL",
+  VOLUNTEERING = "VOLUNTEERING",
+  SOCIAL = "SOCIAL",
+  OTHER = "OTHER",
 }
 
-export enum OfferType {
-  FOOD = "food",
-  TRANSPORTATION = "transportation",
-  CHILDCARE = "childcare",
-  PETCARE = "petcare",
-  MENTAL_HEALTH_SUPPORT = "mental_health_support",
-  FINANCIAL_SUPPORT = "financial_support",
-  EDUCATIONAL_SUPPORT = "educational_support",
-  LEGAL_SUPPORT = "legal_support",
-  TECHNICAL_SUPPORT = "technical_support",
-  OTHER = "other",
+export enum SkillType {
+  TECHNOLOGY = "TECHNOLOGY",
+  TEACHING = "TEACHING",
+  TUTORING = "TUTORING",
+  WRITING = "WRITING",
+  DESIGN = "DESIGN",
+  PHOTOGRAPHY = "PHOTOGRAPHY",
+  COOKING = "COOKING",
+  REPAIR = "REPAIR",
+  DIY = "DIY",
+  MOVING = "MOVING",
+  TRANSPORT = "TRANSPORT",
+  ERRANDS = "ERRANDS",
+  PET_CARE = "PET_CARE",
+  GARDENING = "GARDENING",
+  FITNESS = "FITNESS",
+  SPORTS = "SPORTS",
+  EVENT_HELP = "EVENT_HELP",
+  ORGANIZING = "ORGANIZING",
+  FIRST_AID = "FIRST_AID",
+  OTHER = "OTHER",
 }
-
-export enum DayOfWeek {
-  MONDAY = "monday",
-  TUESDAY = "tuesday",
-  WEDNESDAY = "wednesday",
-  THURSDAY = "thursday",
-  FRIDAY = "friday",
-  SATURDAY = "saturday",
-  SUNDAY = "sunday",
-}
-
-export const dayOptions = [
-  [DayOfWeek.MONDAY, "Monday"],
-  [DayOfWeek.TUESDAY, "Tuesday"],
-  [DayOfWeek.WEDNESDAY, "Wednesday"],
-  [DayOfWeek.THURSDAY, "Thursday"],
-  [DayOfWeek.FRIDAY, "Friday"],
-  [DayOfWeek.SATURDAY, "Saturday"],
-  [DayOfWeek.SUNDAY, "Sunday"],
-] as const;
-
-export const timeOptions = [
-  ["mornings", "Mornings"],
-  ["afternoons", "Afternoons"],
-  ["evenings", "Evenings"],
-  ["flexible", "Flexible"],
-] as const;
-
-export type IntentDetails = {
-  intent: IntentType[];
-  offer: OfferType[];
-};
 
 export type ProfileDetails = {
   name: string;
   bio: string;
   profileImage: File | null;
+  interests: InterestType[];
+  skills: SkillType[];
 };
 
-export type LocationArea = {
+export type LocationDetails = {
   label: string;
   longitude: number | null;
   latitude: number | null;
 };
 
-export type AvailabilityDetails = {
-  availability: Partial<Record<DayOfWeek, string[]>>;
-  area: LocationArea;
-  personalHelpRadius: number;
-  communityHelpRadius: number;
+export type PreferenceDetails = {
+  localityRadius: number;
+  localCommunityRadius: number;
 };

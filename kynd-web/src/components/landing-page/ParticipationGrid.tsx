@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { handleImgError } from '../../utils/imageFallback';
-import { ArrowRight, LayoutGrid } from 'lucide-react';
+import { ArrowRight, LayoutGrid, HeartHandshake, Users, Calendar } from 'lucide-react';
 
 export default function ParticipationGrid() {
   return (
@@ -12,20 +12,20 @@ export default function ParticipationGrid() {
             <div className="flex flex-col gap-space-xs">
               <span className="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">Ways to Participate</span>
               <h2 className="font-headline-lg text-headline-lg text-on-surface tracking-tight">
-                Three Ways You Can Transform Your Neighborhood
+                Three Ways to Engage Your Neighborhood
               </h2>
             </div>
             <p className="font-body-md text-body-md text-on-surface-variant max-w-md">
-              Whether you have an hour to spare or need an extra set of hands, participation is frictionless and equal.
+              Discover local events, give and receive mutual help, or join community-driven teams — all within your chosen radius.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter-lg">
-            {/* Option 1 */}
+            {/* Option 1 — Discover & Connect */}
             <div className="flex flex-col bg-surface-container-lowest rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
               <div className="h-56 w-full overflow-hidden">
                 <img 
-                  alt="Mother and child receiving supportive everyday community care" 
+                  alt="Neighbors gathering for a local community event in the park" 
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
                   src="/images/6abb389d3804fbd99866b3ed_5.png" 
                   onError={(e) => handleImgError(e, "https://lh3.googleusercontent.com/aida/AEtjO1Wpw69jfQocFBYKtgYDcaf_YI6g08YsyNz0p-YMcHR74PYp3ooUxyu-GWYRVtZ_RHVmEHWGwnNRD-xtcF0rumWYWmJ3BgogK2h9lTe7u9yOr24-uVvQ8Hdk2izAu6BASfNUEyEWHN4GcvxUbIPfQNckViTmf2WubbRENw1jm7UyK5w8Zz6wD2oMsjhc2hlFXuxmdcJ_g1WqE1X3HXFKdUNr0_UoOIIcano_d84PmdRbb3OZHxYC5S9L6CWD")}
@@ -33,22 +33,22 @@ export default function ParticipationGrid() {
               </div>
               <div className="p-space-lg flex flex-col gap-space-md flex-1 justify-between">
                 <div className="flex flex-col gap-space-xs">
-                  <span className="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider">01 • Direct Support</span>
-                  <h3 className="font-headline-sm text-headline-sm text-on-surface">Need Help</h3>
-                  <p className="font-body-sm text-body-sm text-on-surface-variant">Post genuine everyday requests from grocery pickups to tech setup within minutes.</p>
+                  <span className="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider">01 • Discover & Connect</span>
+                  <h3 className="font-headline-sm text-headline-sm text-on-surface">Explore Your Area</h3>
+                  <p className="font-body-sm text-body-sm text-on-surface-variant">Find local events, interest groups, buy &amp; sell posts, and neighbors who share your passions — all within walking distance.</p>
                 </div>
-                <Link to="/need-help" className="font-label-md text-label-md text-primary font-semibold hover:text-primary-container inline-flex items-center gap-1 pt-space-xs">
-                  <span>Request Assistance</span>
+                <Link to="/get-started" className="font-label-md text-label-md text-primary font-semibold hover:text-primary-container inline-flex items-center gap-1 pt-space-xs">
+                  <span>Explore Now</span>
                   <ArrowRight size={16} />
                 </Link>
               </div>
             </div>
 
-            {/* Option 2 */}
+            {/* Option 2 — Mutual Help */}
             <div className="flex flex-col bg-surface-container-lowest rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
               <div className="h-56 w-full overflow-hidden">
                 <img 
-                  alt="Energetic volunteers smiling and wearing green neighborhood aid gear" 
+                  alt="Neighbor helping with everyday errands and skills sharing" 
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
                   src="/images/6abb389d3804fbd99866b3f3_1.png" 
                   onError={(e) => handleImgError(e, "https://lh3.googleusercontent.com/aida/AEtjO1VJ2khgw2PsOE4bfgxgex9i2UmLx_wBbr0D_euexfBqTYNLTZLiVFzDzrfCqIDd7YalYFvy3CnGYBx4hsUbtksqb5WhJdBVw_Rjv_wLX828SPpVsE0RstnrH_inR-R3nO5pnQXsDo87uxirJRqNSekYQ20UTyBdVGm5MqprdSlUruTI0ylkC9OR0GIGJ373v_EOrGZ_1leRW6lGn5dyQJC_qve9gVLIyClksgVObPp70gh2G9RVj0nyb988")}
@@ -56,22 +56,22 @@ export default function ParticipationGrid() {
               </div>
               <div className="p-space-lg flex flex-col gap-space-md flex-1 justify-between">
                 <div className="flex flex-col gap-space-xs">
-                  <span className="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">02 • Local Availability</span>
-                  <h3 className="font-headline-sm text-headline-sm text-on-surface">Offer Help</h3>
-                  <p className="font-body-sm text-body-sm text-on-surface-variant">Share when you are free and what you can give within your chosen walking radius.</p>
+                  <span className="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">02 • Mutual Help</span>
+                  <h3 className="font-headline-sm text-headline-sm text-on-surface">Give & Receive Help</h3>
+                  <p className="font-body-sm text-body-sm text-on-surface-variant">Need a hand? Offer your skills? Post requests or share your availability — matched by proximity, skills, and schedule.</p>
                 </div>
-                <Link to="/offer-help" className="font-label-md text-label-md text-primary font-semibold hover:text-primary-container inline-flex items-center gap-1 pt-space-xs">
-                  <span>Set Your Availability</span>
+                <Link to="/need-help" className="font-label-md text-label-md text-primary font-semibold hover:text-primary-container inline-flex items-center gap-1 pt-space-xs">
+                  <span>Need or Offer Help</span>
                   <ArrowRight size={16} />
                 </Link>
               </div>
             </div>
 
-            {/* Option 3 */}
+            {/* Option 3 — Community Teams */}
             <div className="flex flex-col bg-surface-container-lowest rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
               <div className="h-56 w-full overflow-hidden">
                 <img 
-                  alt="Group of diverse community volunteers engaged in a local civic food program" 
+                  alt="Group of diverse community volunteers working together on a local initiative" 
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
                   src="/images/6abb389d3804fbd99866b3f3_2.png" 
                   onError={(e) => handleImgError(e, "https://lh3.googleusercontent.com/aida/AEtjO1UOwQOUw_WkeCrVgwFRpkVsfAAN_PPs48DaJuWeYRYVrakf8BP4QfrR5_8ZPg7bnyFj0OBXPz6iFErGZozexFJJHZxksNJD9_-8Uwq4ZENGQhZxfWH5usWqqJ7Wji7wZleDJh3zjuxiZTYmC33BrNyHORg1LqC1U-IKI_pKdpw0WRDHcwxHDwZBU2zigUjJ8o0jXEFQOPAeLMwOikEPe5DyTojWvDUA7Q96zDfgPIEUe2qno5OP2Xkmnr4h")}
@@ -79,9 +79,9 @@ export default function ParticipationGrid() {
               </div>
               <div className="p-space-lg flex flex-col gap-space-md flex-1 justify-between">
                 <div className="flex flex-col gap-space-xs">
-                  <span className="font-label-sm text-label-sm text-primary-container font-bold uppercase tracking-wider">03 • Collective Impact</span>
-                  <h3 className="font-headline-sm text-headline-sm text-on-surface">Community Teams</h3>
-                  <p className="font-body-sm text-body-sm text-on-surface-variant">Join group initiatives like pantries, environmental repairs, and neighborhood drives.</p>
+                  <span className="font-label-sm text-label-sm text-primary-container font-bold uppercase tracking-wider">03 • Community Teams</span>
+                  <h3 className="font-headline-sm text-headline-sm text-on-surface">Join Local Initiatives</h3>
+                  <p className="font-body-sm text-body-sm text-on-surface-variant">Join group drives — cleanups, pantries, sports leagues, and neighborhood improvements organized by your community.</p>
                 </div>
                 <Link to="/community" className="font-label-md text-label-md text-primary font-semibold hover:text-primary-container inline-flex items-center gap-1 pt-space-xs">
                   <span>Browse Open Teams</span>
@@ -93,24 +93,24 @@ export default function ParticipationGrid() {
         </div>
       </section>
 
-      {/* 2. Everyday Help Categories Grid */}
+      {/* 2. Everyday Help & Community Categories Grid */}
       <section className="w-full py-space-2xl bg-surface">
         <div className="max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg flex flex-col gap-space-xl">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
             <div className="flex flex-col gap-space-xs">
-              <span className="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">Everyday Mutual Help</span>
+              <span className="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">What's Happening Nearby</span>
               <h2 className="font-headline-lg text-headline-lg text-on-surface tracking-tight">
-                Support for Any Genuine Community Need
+                Discover What Your Neighborhood is Up To
               </h2>
             </div>
             <Link to="/need-help" className="px-space-lg py-space-sm rounded-xl bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-all shadow-sm w-fit inline-flex items-center gap-space-xs">
-              <span>See All Active Causes</span>
+              <span>Explore All Categories</span>
               <LayoutGrid size={16} />
             </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
-            {/* Category Card 1 */}
+            {/* Category Card 1 - Mutual Help */}
             <div className="flex flex-col bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
               <div className="h-44 w-full overflow-hidden">
                 <img 
@@ -122,25 +122,28 @@ export default function ParticipationGrid() {
               </div>
               <div className="p-space-md flex flex-col gap-space-sm flex-1 justify-between">
                 <div className="flex flex-col gap-1">
-                  <h4 className="font-title-md text-title-md text-on-surface">Tech &amp; Digital Literacy</h4>
-                  <p className="font-body-sm text-body-sm text-on-surface-variant">Helping seniors with smartphones, computer setup, resume editing, and digital basics.</p>
+                  <div className="flex items-center gap-space-xs">
+                    <HeartHandshake size={16} className="text-primary" />
+                    <h4 className="font-title-md text-title-md text-on-surface">Mutual Help</h4>
+                  </div>
+                  <p className="font-body-sm text-body-sm text-on-surface-variant">Tech setup, tutoring, grocery runs, repairs — neighbors helping neighbors with everyday needs.</p>
                 </div>
                 <div className="pt-space-xs flex flex-col gap-space-xs">
                   <div className="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
-                    <span>142 Active Needs</span>
+                    <span>142 Active Requests</span>
                     <span className="text-primary font-bold">Avg 18m match</span>
                   </div>
                   <div className="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
                     <div className="bg-primary h-full rounded-full" style={{ width: '78%' }}></div>
                   </div>
                   <Link to="/need-help" className="mt-2 w-full py-2 rounded-xl bg-surface-container-low text-primary font-label-sm text-label-sm text-center hover:bg-surface-container transition-colors">
-                    View Tech Requests
+                    View Help Requests
                   </Link>
                 </div>
               </div>
             </div>
 
-            {/* Category Card 2 */}
+            {/* Category Card 2 - Local Events */}
             <div className="flex flex-col bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
               <div className="h-44 w-full overflow-hidden">
                 <img 
@@ -152,25 +155,28 @@ export default function ParticipationGrid() {
               </div>
               <div className="p-space-md flex flex-col gap-space-sm flex-1 justify-between">
                 <div className="flex flex-col gap-1">
-                  <h4 className="font-title-md text-title-md text-on-surface">Study, Tutoring &amp; Reading</h4>
-                  <p className="font-body-sm text-body-sm text-on-surface-variant">After-school reading assistance, language practice, and youth mentoring.</p>
+                  <div className="flex items-center gap-space-xs">
+                    <Calendar size={16} className="text-secondary" />
+                    <h4 className="font-title-md text-title-md text-on-surface">Local Events</h4>
+                  </div>
+                  <p className="font-body-sm text-body-sm text-on-surface-variant">Weekend meetups, sports leagues, hobby workshops, and social gatherings near you.</p>
                 </div>
                 <div className="pt-space-xs flex flex-col gap-space-xs">
                   <div className="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
-                    <span>98 Mentors Active</span>
-                    <span className="text-secondary font-bold">1.2 km radius</span>
+                    <span>28 This Weekend</span>
+                    <span className="text-secondary font-bold">Within 3 km</span>
                   </div>
                   <div className="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
                     <div className="bg-secondary h-full rounded-full" style={{ width: '64%' }}></div>
                   </div>
-                  <Link to="/need-help" className="mt-2 w-full py-2 rounded-xl bg-surface-container-low text-primary font-label-sm text-label-sm text-center hover:bg-surface-container transition-colors">
-                    View Tutoring
+                  <Link to="/community" className="mt-2 w-full py-2 rounded-xl bg-surface-container-low text-primary font-label-sm text-label-sm text-center hover:bg-surface-container transition-colors">
+                    Browse Events
                   </Link>
                 </div>
               </div>
             </div>
 
-            {/* Category Card 3 */}
+            {/* Category Card 3 - Interest Groups */}
             <div className="flex flex-col bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
               <div className="h-44 w-full overflow-hidden">
                 <img 
@@ -182,25 +188,28 @@ export default function ParticipationGrid() {
               </div>
               <div className="p-space-md flex flex-col gap-space-sm flex-1 justify-between">
                 <div className="flex flex-col gap-1">
-                  <h4 className="font-title-md text-title-md text-on-surface">Environmental Care</h4>
-                  <p className="font-body-sm text-body-sm text-on-surface-variant">Park cleanups, tree planting, composting support, and local gardening.</p>
+                  <div className="flex items-center gap-space-xs">
+                    <Users size={16} className="text-primary-container" />
+                    <h4 className="font-title-md text-title-md text-on-surface">Interest Groups</h4>
+                  </div>
+                  <p className="font-body-sm text-body-sm text-on-surface-variant">Gaming, fitness, photography, cooking, pets — find your tribe in the neighborhood.</p>
                 </div>
                 <div className="pt-space-xs flex flex-col gap-space-xs">
                   <div className="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
-                    <span>12 Local Teams</span>
-                    <span className="text-primary-container font-bold">240+ Joined</span>
+                    <span>45 Active Groups</span>
+                    <span className="text-primary-container font-bold">380+ Members</span>
                   </div>
                   <div className="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
                     <div className="bg-primary-container h-full rounded-full" style={{ width: '88%' }}></div>
                   </div>
                   <Link to="/community" className="mt-2 w-full py-2 rounded-xl bg-surface-container-low text-primary font-label-sm text-label-sm text-center hover:bg-surface-container transition-colors">
-                    Join Team
+                    Find Groups
                   </Link>
                 </div>
               </div>
             </div>
 
-            {/* Category Card 4 */}
+            {/* Category Card 4 - Local Marketplace */}
             <div className="flex flex-col bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
               <div className="h-44 w-full overflow-hidden">
                 <img 
@@ -212,19 +221,22 @@ export default function ParticipationGrid() {
               </div>
               <div className="p-space-md flex flex-col gap-space-sm flex-1 justify-between">
                 <div className="flex flex-col gap-1">
-                  <h4 className="font-title-md text-title-md text-on-surface">Household &amp; Mobility</h4>
-                  <p className="font-body-sm text-body-sm text-on-surface-variant">Grocery delivery for isolated residents, ride coordination, and quick household fixes.</p>
+                  <div className="flex items-center gap-space-xs">
+                    <LayoutGrid size={16} className="text-primary" />
+                    <h4 className="font-title-md text-title-md text-on-surface">Local Buy &amp; Sell</h4>
+                  </div>
+                  <p className="font-body-sm text-body-sm text-on-surface-variant">Trade pre-loved items, find local services, and support neighborhood businesses.</p>
                 </div>
                 <div className="pt-space-xs flex flex-col gap-space-xs">
                   <div className="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
-                    <span>315 Completed</span>
-                    <span className="text-primary font-bold">100% verified</span>
+                    <span>215 Listings</span>
+                    <span className="text-primary font-bold">Verified sellers</span>
                   </div>
                   <div className="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
                     <div className="bg-primary h-full rounded-full" style={{ width: '92%' }}></div>
                   </div>
-                  <Link to="/need-help" className="mt-2 w-full py-2 rounded-xl bg-surface-container-low text-primary font-label-sm text-label-sm text-center hover:bg-surface-container transition-colors">
-                    View Errands
+                  <Link to="/community" className="mt-2 w-full py-2 rounded-xl bg-surface-container-low text-primary font-label-sm text-label-sm text-center hover:bg-surface-container transition-colors">
+                    View Marketplace
                   </Link>
                 </div>
               </div>

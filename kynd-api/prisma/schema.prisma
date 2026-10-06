@@ -23,39 +23,49 @@ enum OAuthProvider {
   GOOGLE
 }
 
-enum UserIntent {
-  LOOKING_FOR_HELP
-  OFFERING_HELP
-  CONTRIBUTE
-  ORGANIZE
-  JUST_BROWSING
-}
-
-enum OfferingHelpIntent {
-  MENTAL_HEALTH
-  FINANCIAL_ASSISTANCE
-  FOOD
-  TRANSPORTATION
-  CHILDCARE
-  PETCARE
-  HOUSING
-  LEGAL_ASSISTANCE
+enum Interest {
+  NEIGHBORHOOD
+  COMMUNITY
   EDUCATION
-  TECHNICAL_SUPPORT
-  EMPLOYMENT
-  MEDICAL_ASSISTANCE
+  SPORTS
+  FITNESS
+  TECHNOLOGY
+  PETS
+  ENVIRONMENT
+  EVENTS
+  FOOD
+  HOBBIES
+  GAMING
+  CAREER
+  LOCAL_BUSINESS
+  BUY_SELL
+  TRAVEL
   VOLUNTEERING
+  SOCIAL
   OTHER
 }
 
-enum DayOfWeek {
-  SUNDAY
-  MONDAY
-  TUESDAY
-  WEDNESDAY
-  THURSDAY
-  FRIDAY
-  SATURDAY
+enum Skill {
+  TECHNOLOGY
+  TEACHING
+  TUTORING
+  WRITING
+  DESIGN
+  PHOTOGRAPHY
+  COOKING
+  REPAIR
+  DIY
+  MOVING
+  TRANSPORT
+  ERRANDS
+  PET_CARE
+  GARDENING
+  FITNESS
+  SPORTS
+  EVENT_HELP
+  ORGANIZING
+  FIRST_AID
+  OTHER
 }
 
 model User {
@@ -65,12 +75,14 @@ model User {
   status       AccountStatus @default(PENDING)
   passwordHash String?
 
-  profile             UserProfile?
-  location            UserLocation?
-  preference          UserPreference?
+  profile    UserProfile?
+  location   UserLocation?
+  preference UserPreference?
+
   accounts            Account[]
   refreshTokens       RefreshToken[]
   passwordResetTokens PasswordResetToken[]
+  Posts               Post[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -81,10 +93,11 @@ model UserProfile {
   userId String @unique
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  profileImage       String?
-  bio                String?
-  intent             UserIntent[]         @default([JUST_BROWSING])
-  offeringHelpIntent OfferingHelpIntent[] @default([])
+  profileImage String?
+  bio          String?
+
+  interests Interest[] @default([])
+  skills    Skill[]    @default([])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -108,23 +121,11 @@ model UserPreference {
   userId String @unique
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  personalHelpRadius  Int @default(2)
-  communityHelpRadius Int @default(2)
+  localityRadius       Int @default(2)
+  localCommunityRadius Int @default(2)
 
-  availability UserAvailability[]
-  createdAt    DateTime           @default(now())
-  updatedAt    DateTime           @updatedAt
-}
-
-model UserAvailability {
-  id             String         @id @default(cuid())
-  userId         String
-  userpreference UserPreference @relation(fields: [userId], references: [id], onDelete: Cascade)
-  day            DayOfWeek
-  startTime      String
-  endTime        String
-
-  @@index([userId])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Account {
@@ -171,4 +172,52 @@ model PasswordResetToken {
 
   @@index([userId])
   @@index([expiresAt])
+}
+
+// Post model
+
+enum PostType {
+  COMMUNITY
+  LOOKING_FOR_HELP
+  OFFERING_HELP
+  BORROW
+  LEND
+  SHARE
+  CONTRIBUTE
+  ORGANIZE
+}
+
+model Post {
+  id       String @id @default(cuid())
+  authorId String
+  author   User   @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+  type    PostType
+  title   String
+  content String
+
+  locationLabel     String?
+  locationLatitude  Float?
+  locationLongitude Float?
+
+  images PostImage[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([authorId])
+  @@index([type])
+}
+
+model PostImage {
+  id     String @id @default(cuid())
+  postId String
+  post   Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  url       String
+  sortOrder Int    @default(0)
+
+  createdAt DateTime @default(now())
+
+  @@index([postId])
 }

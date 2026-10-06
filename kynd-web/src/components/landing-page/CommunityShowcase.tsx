@@ -5,28 +5,28 @@ import { UsersRound, MapPin } from 'lucide-react';
 export default function CommunityShowcase() {
   return (
     <div className="flex flex-col w-full">
-      {/* 1. Weekend Teams & Initiatives */}
+      {/* 1. Active Community Happenings */}
       <section className="w-full py-space-2xl bg-surface">
         <div className="max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg flex flex-col gap-space-xl">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
             <div className="flex flex-col gap-space-xs">
               <span className="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">Live In Your Area</span>
               <h2 className="font-headline-lg text-headline-lg text-on-surface tracking-tight">
-                Teams Forming This Weekend
+                What's Happening This Weekend
               </h2>
               <p className="font-body-md text-body-md text-on-surface-variant max-w-xl">
-                Join verified neighborhood collectives working together on immediate civic needs.
+                Local events, community drives, and interest groups forming near you right now.
               </p>
             </div>
             <Link to="/community" className="px-space-lg py-space-sm rounded-xl bg-surface-container-low text-primary font-label-md text-label-md hover:bg-surface-container transition-colors w-fit inline-flex items-center gap-space-xs">
-              <span>View All 18 Open Teams</span>
+              <span>View All Happenings</span>
               <UsersRound size={16} />
             </Link>
           </div>
 
-          {/* Team Showcase Cards */}
+          {/* Showcase Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-            {/* Team Card 1 */}
+            {/* Card 1 — Community Help Drive */}
             <div className="flex flex-col bg-surface-container-lowest rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all">
               <div className="h-48 w-full overflow-hidden relative">
                 <img 
@@ -61,7 +61,7 @@ export default function CommunityShowcase() {
               </div>
             </div>
 
-            {/* Team Card 2 */}
+            {/* Card 2 — Interest Group / Event */}
             <div className="flex flex-col bg-surface-container-lowest rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all">
               <div className="h-48 w-full overflow-hidden relative">
                 <img 
@@ -96,7 +96,7 @@ export default function CommunityShowcase() {
               </div>
             </div>
 
-            {/* Team Card 3 */}
+            {/* Card 3 — Neighborhood Initiative */}
             <div className="flex flex-col bg-surface-container-lowest rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all">
               <div className="h-48 w-full overflow-hidden relative">
                 <img 
@@ -134,7 +134,7 @@ export default function CommunityShowcase() {
 
           {/* Action Photo Gallery Mosaic */}
           <div className="flex flex-col gap-space-sm pt-space-md">
-            <span className="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant text-center font-bold">Neighborhood Action Moments</span>
+            <span className="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant text-center font-bold">Community Moments From Your Neighborhood</span>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-gutter-sm">
               <div className="h-44 rounded-2xl overflow-hidden shadow-sm">
                 <img 
@@ -177,32 +177,32 @@ export default function CommunityShowcase() {
       <section className="w-full py-space-2xl bg-surface-container-low/50 border-t border-surface-container/50">
         <div className="max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg flex flex-col gap-space-xl">
           <div className="flex flex-col gap-space-xs text-center items-center max-w-2xl mx-auto">
-            <span className="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">Contribution, Not Competition</span>
+            <span className="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">Real Neighbors, Real Stories</span>
             <h2 className="font-headline-lg text-headline-lg text-on-surface tracking-tight">
-              Stories of True Mutual Help
+              How Kynd Changed Our Neighborhood
             </h2>
             <p className="font-body-md text-body-md text-on-surface-variant">
-              Because anyone can need help today and offer help tomorrow.
+              From finding a study buddy to organizing community drives — hear what neighbors say.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
             <div className="p-space-lg rounded-3xl bg-surface-container-lowest shadow-sm flex flex-col justify-between gap-space-md">
               <p className="font-body-sm text-body-sm text-on-surface-variant italic">
-                "Last month I broke my wrist and neighbors helped with school drop-offs. This month I helped two high schoolers prep for chemistry. That's Kynd."
+                "I moved to a new area and had zero connections. Within a week on Kynd, I found a running group, a pet parents meetup, and someone who helped me set up my home office. It's like having a neighborhood bestie app."
               </p>
               <div className="flex items-center gap-space-sm pt-space-xs">
                 <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center font-bold text-primary">ER</div>
                 <div className="flex flex-col">
                   <span className="font-label-md text-label-md text-on-surface">Elena Rostova</span>
-                  <span className="font-label-sm text-label-sm text-on-surface-variant">Mom &amp; Science Tutor</span>
+                  <span className="font-label-sm text-label-sm text-on-surface-variant">New Resident &amp; Dog Parent</span>
                 </div>
               </div>
             </div>
 
             <div className="p-space-lg rounded-3xl bg-surface-container-lowest shadow-sm flex flex-col justify-between gap-space-md">
               <p className="font-body-sm text-body-sm text-on-surface-variant italic">
-                "I love that there are no 1-to-5 star reviews. Just honest records of who showed up and how we helped each other. Pure dignity."
+                "I love that there are no star ratings. Just honest records of who showed up and how we helped each other. Kynd treats everyone with pure dignity."
               </p>
               <div className="flex items-center gap-space-sm pt-space-xs">
                 <div className="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center font-bold text-secondary">MV</div>
@@ -215,26 +215,26 @@ export default function CommunityShowcase() {
 
             <div className="p-space-lg rounded-3xl bg-surface-container-lowest shadow-sm flex flex-col justify-between gap-space-md">
               <p className="font-body-sm text-body-sm text-on-surface-variant italic">
-                "Coordinating food distribution used to take dozens of messy group chats. With Kynd teams, 15 volunteers assembled in under 2 hours."
+                "Coordinating our weekend food drive used to take dozens of messy group chats. With Kynd teams, 15 volunteers assembled in under 2 hours. The community features are a game-changer."
               </p>
               <div className="flex items-center gap-space-sm pt-space-xs">
                 <div className="w-10 h-10 rounded-full bg-primary-fixed-dim flex items-center justify-center font-bold text-primary">PP</div>
                 <div className="flex flex-col">
                   <span className="font-label-md text-label-md text-on-surface">Priya Patel</span>
-                  <span className="font-label-sm text-label-sm text-on-surface-variant">Team Organizer</span>
+                  <span className="font-label-sm text-label-sm text-on-surface-variant">Community Organizer</span>
                 </div>
               </div>
             </div>
 
             <div className="p-space-lg rounded-3xl bg-surface-container-lowest shadow-sm flex flex-col justify-between gap-space-md">
               <p className="font-body-sm text-body-sm text-on-surface-variant italic">
-                "Setting a 2 km radius means I only help people I might run into at the local bakery. It makes our neighborhood feel alive again."
+                "Setting a 2 km radius means I see events, buy &amp; sell posts, and help requests all from people I might bump into at the local bakery. My neighborhood feels alive again."
               </p>
               <div className="flex items-center gap-space-sm pt-space-xs">
                 <div className="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center font-bold text-on-secondary-container">DC</div>
                 <div className="flex flex-col">
                   <span className="font-label-md text-label-md text-on-surface">David Chen</span>
-                  <span className="font-label-sm text-label-sm text-on-surface-variant">Everyday Helper</span>
+                  <span className="font-label-sm text-label-sm text-on-surface-variant">Everyday Neighbor</span>
                 </div>
               </div>
             </div>

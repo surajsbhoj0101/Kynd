@@ -6,18 +6,18 @@ export default function CtaBanner() {
     <section className="relative w-full py-space-2xl bg-surface-container-lowest overflow-hidden">
       <div className="max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg relative">
         <div className="relative z-10 max-w-2xl mx-auto text-center flex flex-col items-center gap-space-md py-space-xl">
-          <span className="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">Join Your Local Mesh</span>
+          <span className="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">Join Your Local Community</span>
           <h2 className="font-display text-headline-lg md:text-display text-on-surface tracking-tight">
-            Everyone Has Something to Give. <br />
-            <span className="text-primary">What Is Yours?</span>
+            Your Neighborhood Is Waiting. <br />
+            <span className="text-primary">Be Part of It.</span>
           </h2>
           <p className="font-body-lg text-body-lg text-on-surface-variant">
-            Connect with neighbors within walking distance, share your skills, or ask for a hand when you need one. No friction, no debt, just neighborly kindness.
+            Discover events, connect with neighbors, share your skills, or just explore what's happening around you. Kynd makes your neighborhood come alive.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-space-md pt-space-sm">
             <Link to="/get-started" className="px-space-xl py-space-md rounded-xl bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-all shadow-md">
-              Join as a Neighbor
+              Join Your Neighborhood
             </Link>
             <Link to="/community" className="px-space-xl py-space-md rounded-xl bg-secondary-container text-on-secondary-container font-label-md text-label-md hover:bg-secondary-fixed transition-all shadow-sm">
               Register an Organization

@@ -62,7 +62,7 @@ export function AuthenticatedRoute() {
 
   return (
     <>
-      <MainNavbar />
+      {/* <MainNavbar /> */}
       <Outlet />
     </>
   );
