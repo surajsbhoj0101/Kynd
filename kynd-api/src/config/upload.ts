@@ -29,3 +29,30 @@ export const uploadProfileImage = multer({
     callback(null, true);
   },
 });
+
+export const postImageDirectory = path.resolve("uploads/post-images");
+
+mkdirSync(postImageDirectory, { recursive: true });
+
+const postImageStorage = multer.diskStorage({
+  destination: (_req, _file, callback) => {
+    callback(null, postImageDirectory);
+  },
+  filename: (_req, file, callback) => {
+    const extension = path.extname(file.originalname).toLowerCase();
+    callback(null, `${randomUUID()}${extension}`);
+  },
+});
+
+export const uploadPostImages = multer({
+  storage: postImageStorage,
+  limits: { fileSize: 5 * 1024 * 1024, files: 8 },
+  fileFilter: (_req, file, callback) => {
+    if (!file.mimetype.startsWith("image/")) {
+      callback(new Error("Only image files are allowed."));
+      return;
+    }
+
+    callback(null, true);
+  },
+});

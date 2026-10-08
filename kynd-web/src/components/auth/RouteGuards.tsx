@@ -5,6 +5,7 @@ import { useAuth } from "../../context/AuthContext.tsx";
 import App from "../../App.tsx";
 import Home from "../../pages/main/Home.tsx";
 import MainNavbar from "../main/MainNavbar.tsx";
+import ThemeSwitcher from "../ThemeSwitcher.tsx";
 
 function LoadingScreen() {
   return (
@@ -107,7 +108,13 @@ export function HomeRoute() {
   }
 
   if (!user) {
-    return <App />;
+    return (
+      <>
+        {" "}
+        <ThemeSwitcher />
+        <App />{" "}
+      </>
+    );
   }
 
   if (user.status === AccountStatus.ONBOARDING) {

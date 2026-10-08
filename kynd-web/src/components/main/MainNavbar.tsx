@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { useAuth } from "../../context/AuthContext";
 import { useState } from "react";
-import LocationPopUp from "./LocationPopUp";
+import Location from "./modals/Location";
 import MobileHomeMenu from "./MobileHomeMenu";
 function MainNavbar() {
   const { user, fetchUser } = useAuth();
@@ -29,7 +29,7 @@ function MainNavbar() {
 
   return (
     <>
-      <LocationPopUp
+      <Location
         open={isLocationPopUpOpen}
         onClose={() => setIsLocationPopUpOpen(false)}
         onLocationSaved={() => {

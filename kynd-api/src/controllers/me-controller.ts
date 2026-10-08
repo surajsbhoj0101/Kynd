@@ -2,7 +2,7 @@ import { ApiResponse } from "../utils/api-response.ts";
 import { Request, Response } from "express";
 import { prisma } from "../config/db.ts";
 
-export const getHome = async (req: Request, res: Response) => {
+export const getMe = async (req: Request, res: Response) => {
   try {
     const userId = res.locals.userId as string | undefined;
 
@@ -38,6 +38,46 @@ export const getHome = async (req: Request, res: Response) => {
   } catch (error) {
     console.error("Error fetching home data:", error);
     return res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+export const getMyPosts = async (req: Request, res: Response) => {
+  try {
+    const userId = res.locals.userId as string | undefined;
+
+    if (!userId) {
+      return ApiResponse.badRequest(
+        res,
+        "User ID is required.",
+        "MISSING_USER_ID",
+      );
+    }
+
+    const posts = await prisma.post.findMany({
+      where: { authorId: userId },
+      orderBy: { createdAt: "desc" },
+      include: {
+        images: {
+          orderBy: { sortOrder: "asc" },
+        },
+        schedule: true,
+        author: {
+          select: {
+            name: true,
+            location: { select: { areaLabel: true } },
+          },
+        },
+      },
+    });
+
+    return ApiResponse.success(res, { posts });
+  } catch (error) {
+    console.error("Error fetching user posts:", error);
+    return ApiResponse.serverError(
+      res,
+      "Unable to fetch your posts.",
+      "MY_POSTS_FETCH_ERROR",
+    );
   }
 };
 

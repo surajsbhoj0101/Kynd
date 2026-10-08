@@ -15,10 +15,8 @@ import {
   GuestRoute,
   OnboardingRoute,
   HomeRoute,
-  AuthenticatedRoute,
 } from "./components/auth/RouteGuards.tsx";
 import { AuthProvider } from "./context/AuthContext.tsx";
-import NewPost from "./pages/post/NewPost.tsx";
 
 const router = createBrowserRouter([
   {
@@ -61,26 +59,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-
-  {
-    element: <AuthenticatedRoute />,
-    children: [
-      {
-        path: "/new-post",
-        element: <NewPost />,
-        //   path: "/profile",
-        //   element: <Profile />,
-        // },
-        // {
-        //   path: "/requests",
-        //   element: <Requests />,
-        // },
-        // {
-        //   path: "/messages",
-        //   element: <Messages />,
-      },
-    ],
-  },
 ]);
 
 createRoot(document.getElementById("root")!).render(
@@ -89,7 +67,6 @@ createRoot(document.getElementById("root")!).render(
       <AuthProvider>
         <RouterProvider router={router} />
       </AuthProvider>
-      <ThemeSwitcher />
       <Toaster position="top-right" richColors />
     </ThemeProvider>
   </StrictMode>,

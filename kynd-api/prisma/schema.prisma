@@ -187,6 +187,12 @@ enum PostType {
   ORGANIZE
 }
 
+enum ScheduleType {
+  FLEXIBLE
+  STARTS_AT
+  TIME_RANGE
+}
+
 model Post {
   id       String @id @default(cuid())
   authorId String
@@ -200,7 +206,8 @@ model Post {
   locationLatitude  Float?
   locationLongitude Float?
 
-  images PostImage[]
+  images   PostImage[]
+  schedule PostSchedule?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -220,4 +227,18 @@ model PostImage {
   createdAt DateTime @default(now())
 
   @@index([postId])
+}
+
+model PostSchedule {
+  id     String @id @default(cuid())
+  postId String @unique
+  post   Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  type ScheduleType
+
+  startsAt DateTime?
+  endsAt   DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

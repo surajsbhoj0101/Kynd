@@ -1,15 +1,15 @@
 import { MapPin, Navigation, Search, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { useAuth } from "../../context/AuthContext.tsx";
-import { apiFetch } from "../../lib/api-client.ts";
+import { useAuth } from "../../../context/AuthContext.tsx";
+import { apiFetch } from "../../../lib/api-client.ts";
 import {
   getLocationsSuggestions,
   reverseGeocodeLocation,
   type GeocodingFeature,
-} from "../../services/geoServices.tsx";
+} from "../../../services/geoServices.tsx";
 import { toast } from "sonner";
 
-function LocationPopUp({
+function Location({
   open,
   onClose,
   onLocationSaved,
@@ -245,4 +245,4 @@ function LocationPopUp({
   );
 }
 
-export default LocationPopUp;
+export default Location;
